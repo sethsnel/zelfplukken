@@ -1,0 +1,29 @@
+---
+import { renderRichText, storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+//console.info(blok)
+const subTitleContent = renderRichText(blok.sub_titel);
+//console.info(subTitleContent)
+---
+
+<div {...storyblokEditable(blok)} class="headline">
+  <h2>{blok.titel}</h2>
+  <Fragment set:html={subTitleContent} />
+</div>
+
+<style>
+  .headline {
+    text-align: center;
+  }
+  .headline h2::after {
+    content: "";
+    display: block;
+    background-color: #000;
+
+    margin: 0 auto;
+    width: 75px;
+    height: 6px;
+    border-radius: 10px;
+  }
+</style>

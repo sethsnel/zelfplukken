@@ -1,0 +1,27 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const { blok } = Astro.props;
+// console.info('Page');
+// console.info(blok);
+---
+
+<BaseLayout title="Zelfplukken.nl" description="Zelfplukken - Vers, gezond en erg lekker">
+  <div class="container" {...storyblokEditable(blok)}>
+    {
+      blok.body?.map((blok: any) => {
+        return <StoryblokComponent blok={blok} />;
+      })
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+</style>

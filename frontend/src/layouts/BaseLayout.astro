@@ -1,0 +1,39 @@
+---
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import { useStoryblokApi } from "@storyblok/astro";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+
+const storyblokApi = useStoryblokApi();
+
+const {
+  data: { story: headerContent },
+} = await storyblokApi.get("cdn/stories/website-header", {
+  version: "published",
+});
+
+const { title, description, } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      main {
+        width: calc(100% - 2em);
+        max-width: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <StoryblokComponent blok={headerContent.content} />
+    <main>
+      <article>
+        <slot />
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

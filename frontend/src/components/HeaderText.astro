@@ -1,0 +1,55 @@
+---
+
+const {content} = Astro.props;
+
+---
+
+<div class="intro-heading">
+  <div class="outer-border">
+    <div class="inner-border">
+      <slot />
+    </div>
+  </div>
+</div>
+<style>
+  .intro-heading {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 450px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-grow: 1;
+
+    background-color: rgb(var(--green));
+    text-align: center;
+    color: rgb(var(--creme));
+  }
+  .outer-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.2rem;
+    margin: 0.2rem;
+    width: calc(100% - 1rem);
+    border: rgb(var(--creme)) 1px solid;
+  }
+  .inner-border {
+    padding: 0.5rem;
+    width: calc(100% - 1rem);
+    border: rgb(var(--creme)) 2px solid;
+  }
+  @media (min-width: 960px) {
+    .intro-heading {
+      margin: 0 10rem 0 auto;
+    }
+  }
+</style>
+<style is:global>
+  .intro-heading  p {
+    margin: 0;
+  }
+</style>

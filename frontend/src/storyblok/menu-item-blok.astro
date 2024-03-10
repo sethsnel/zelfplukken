@@ -1,0 +1,27 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import MenuItem from "../components/MenuItem.astro";
+
+const { blok: { titel, link, kleur, afbeelding} } = Astro.props;
+
+const item = { title: titel, href: '/' + link.cached_url, bgColor: kleur, image: afbeelding.filename }
+const props = { item }
+---
+
+<MenuItem {...storyblokEditable(Astro.props.blok)} { ...props } />
+
+<style>
+  .headline {
+    text-align: center;
+  }
+  .headline h2::after {
+    content: "";
+    display: block;
+    background-color: #000;
+
+    margin: 0 auto;
+    width: 75px;
+    height: 6px;
+    border-radius: 10px;
+  }
+</style>

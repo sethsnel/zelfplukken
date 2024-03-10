@@ -1,0 +1,42 @@
+---
+import { renderRichText, storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+const textContent = renderRichText(blok.inhoud);
+
+// console.info('Paragraaf');
+// console.info(blok);
+---
+
+<div class="row" {...storyblokEditable(blok)}>
+    { blok.afbeelding?.filename && <img src={blok.afbeelding.filename} alt={blok.afbeelding.alt} /> }
+  <div class="text">
+    <Fragment set:html={textContent} />
+  </div>
+</div>
+
+<style>
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .row img {
+    align-self: center;
+  }
+  .row .text {
+    flex-grow: 2;
+  }
+  @media only screen and (min-width: 800px) {
+    .row {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .row:nth-of-type(even) {
+      flex-direction: row-reverse;
+    }
+  }
+</style>

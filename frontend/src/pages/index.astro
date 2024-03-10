@@ -1,0 +1,15 @@
+---
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import { useStoryblokApi } from "@storyblok/astro";
+
+const storyblokApi = useStoryblokApi();
+
+const {
+  data: { story },
+} = await storyblokApi.get("cdn/stories/index", {
+  version: "published",
+});
+
+---
+
+<StoryblokComponent blok={story.content} />

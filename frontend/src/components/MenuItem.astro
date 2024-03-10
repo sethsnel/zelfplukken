@@ -1,0 +1,38 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import MenuItemLink from "./MenuItemLink.astro";
+
+type MenuItem = {
+  href: string;
+  bgColor: string;
+  title: string;
+  image?: string;
+};
+type Props = HTMLAttributes<"a"> & { item: MenuItem};
+
+const {
+  class: className,
+  item: { href, bgColor, title, image },
+  ...props
+} = Astro.props;
+
+// console.info(href);
+// console.info(title);
+// console.info(bgColor);
+
+---
+
+<div style={{ backgroundColor: bgColor || 'rgb(81, 135, 46)' }}>
+  <MenuItemLink href={href} image={image}>
+    <h5 class="title">{title}</h5>
+  </MenuItemLink>
+</div>
+<style>
+  h5 {
+    color: rgb(var(--creme));
+    margin: 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+</style>

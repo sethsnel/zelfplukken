@@ -1,0 +1,57 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a"> & { image?: string };
+
+const { href, class: className, image, ...props } = Astro.props;
+---
+
+<a href={href} class:list={[className]} {...props}>
+  {image && <img src={image} alt="" />}
+  {
+    !image && (
+      <div class="outer-border">
+        <div class="inner-border">
+          <slot />
+        </div>
+      </div>
+    )
+  }
+</a>
+<style>
+  a {
+    height: 100%;
+    display: flex;
+    text-decoration: none;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inner-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 95%;
+    height: 96%;
+    border: rgb(var(--creme)) 2px solid;
+  }
+
+  .outer-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 96%;
+    height: 96%;
+    border: rgb(var(--creme)) 1px solid;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: initial;
+  }
+</style>

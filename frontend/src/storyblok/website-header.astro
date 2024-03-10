@@ -1,0 +1,15 @@
+---
+import { renderRichText, storyblokEditable } from "@storyblok/astro";
+import Header from "../components/Header.astro";
+import HeaderText from "../components/HeaderText.astro";
+
+const { blok } = Astro.props;
+
+const headerTextContent = renderRichText(blok.info);
+---
+
+<Header {...storyblokEditable(blok)}>
+  <HeaderText>
+    <Fragment set:html={headerTextContent} />
+  </HeaderText>
+</Header>

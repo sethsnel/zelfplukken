@@ -1,0 +1,75 @@
+---
+const displayMenuLink = Astro.url.pathname !== '/' && !Astro.url.pathname.includes('index');
+---
+
+<header>
+  <nav>
+    <a href="/" class:list={[{ active: displayMenuLink }]}>
+      <svg viewBox="0 0 100 80" width="24" height="24">
+        <rect width="100" height="20" rx="8"></rect>
+        <rect y="30" width="100" height="20" rx="8"></rect>
+        <rect y="60" width="100" height="20" rx="8"></rect>
+      </svg>
+      menu
+    </a>
+  </nav>
+  <slot />
+</header>
+<style>
+  header {
+    margin: calc(200px - 1rem) auto 0 auto;
+    padding: 2rem 0 1rem 0;
+    max-width: 1024px;
+
+    display: flex;
+    /* box-shadow: 0 2px 8px rgba(var(--black), 5%); */
+  }
+  nav {
+    /* display: none; */
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+  }
+  nav a {
+    padding: 0.25rem 0.5rem;
+    color: var(--black);
+    font-size: 22px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.8);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  nav a.active {
+    display: flex;
+  }
+
+  @media (min-width: 720px) {
+    header {
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* .intro-heading {
+      margin: 0 5rem 0 auto;
+    } */
+
+    nav {
+      position: inherit;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .intro-heading {
+      margin: 0 10rem 0 auto;
+    }
+  }
+</style>
