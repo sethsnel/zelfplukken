@@ -49,4 +49,4 @@ jobs:
           server: ${{ vars.FTP_ADDRESS }}
           username: ${{ vars.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: './dist/'
+          local-dir: './frontend/dist/'
