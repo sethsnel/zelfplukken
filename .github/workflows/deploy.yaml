@@ -1,9 +1,12 @@
+name: 🚀 Build & Deploy zelfplukken.nl
 on:
   push:
     branches: [main]
     paths: ['frontend/']
   workflow_dispatch:
-name: 🚀 Build & Deploy zelfplukken.nl
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
   pages: write
