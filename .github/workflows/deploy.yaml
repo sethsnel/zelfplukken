@@ -2,7 +2,7 @@ name: 🚀 Build & Deploy zelfplukken.nl
 on:
   push:
     branches: [main]
-    paths: ['frontend/']
+    paths: ['frontend/**']
   workflow_dispatch:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
