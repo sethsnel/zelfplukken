@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <div class="menu">
@@ -35,7 +36,9 @@
   }
 </style>
 <style is:global>
-  .menu div:nth-child(4n-1) {
-    grid-column-start: 2;
+  @media only screen and (max-width: 600px) {
+    .menu div:nth-child(4n-1) {
+      grid-column-start: 2;
+    }
   }
 </style>
