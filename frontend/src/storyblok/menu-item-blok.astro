@@ -10,18 +10,3 @@ const props = { item }
 
 <MenuItem {...storyblokEditable(Astro.props.blok)} { ...props } />
 
-<style>
-  .headline {
-    text-align: center;
-  }
-  .headline h2::after {
-    content: "";
-    display: block;
-    background-color: #000;
-
-    margin: 0 auto;
-    width: 75px;
-    height: 6px;
-    border-radius: 10px;
-  }
-</style>

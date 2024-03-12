@@ -52,14 +52,12 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  background-size: 100% 600px;
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-dark));
   font-size: 20px;
   line-height: 1.7;
-  background: url('/images/van-reeuwijk-logo.png') no-repeat 2rem 2rem rgb(var(--creme));
-  background-size: 350px 350px;
+  background-color: rgb(var(--creme));
 }
 main {
   width: 720px;
@@ -155,8 +153,6 @@ hr {
 @media (max-width: 720px) {
   body {
     font-size: 18px;
-    background: url('/images/van-reeuwijk-logo.png') no-repeat 50% 0.5rem rgb(var(--creme));
-    background-size: 200px 200px;
   }
   main {
     padding: 1em;

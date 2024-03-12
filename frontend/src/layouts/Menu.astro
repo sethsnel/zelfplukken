@@ -1,7 +1,7 @@
 ---
 ---
 
-<div>
+<div class="menu">
   <slot />
 </div>
 
@@ -10,6 +10,7 @@
     display: grid;
     grid-template-columns: repeat(2, 45vw);
     grid-auto-rows: 45vw;
+    grid-auto-flow: dense;
     column-gap: 1rem;
     row-gap: 1rem;
     margin: 0 auto;
@@ -31,5 +32,10 @@
       grid-template-columns: repeat(3, 240px);
       grid-auto-rows: 240px;
     }
+  }
+</style>
+<style is:global>
+  .menu div:nth-child(4n-1) {
+    grid-column-start: 2;
   }
 </style>

@@ -3,21 +3,22 @@ import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"a"> & { image?: string };
 
-const { href, class: className, image, ...props } = Astro.props;
+const { href, image, ...props } = Astro.props;
 ---
 
-<a href={href} class:list={[className]} {...props}>
-  {image && <img src={image} alt="" />}
-  {
-    !image && (
+{image && <img src={image} alt="" />}
+{
+  !image && (
+    <a href={href} {...props}>
       <div class="outer-border">
         <div class="inner-border">
           <slot />
         </div>
       </div>
-    )
-  }
-</a>
+    </a>
+  )
+}
+
 <style>
   a {
     height: 100%;
