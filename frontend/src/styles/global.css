@@ -117,7 +117,7 @@ table {
   width: 100%;
 }
 img {
-  max-width: 100%;
+  max-width: min(100%, 400px);
   height: auto;
   border-radius: 8px;
 }
