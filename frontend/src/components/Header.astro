@@ -26,6 +26,7 @@ const displayMenuLink = Astro.url.pathname !== '/' && !Astro.url.pathname.includ
   }
   nav {
     /* display: none; */
+    z-index: 2;
     position: fixed;
     bottom: 1rem;
     left: 1rem;
@@ -38,11 +39,12 @@ const displayMenuLink = Astro.url.pathname !== '/' && !Astro.url.pathname.includ
     text-decoration: none;
     background: rgba(255, 255, 255, 0.8);
 
-    display: none;
-    justify-content: end;
     padding-right: 1rem;
-    justify-content: center;
     gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+
+    display: none;
   }
 
   nav a.active {
