@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+
+// console.info('Album');
+// console.info(blok);
+---
+
+<div class="album" {...storyblokEditable(blok)}>
+  {
+    blok.afbeeldingen.map((afbeelding: any) => {
+      return (
+        <Image src={afbeelding.filename + '/m/600x0'} alt={afbeelding.alt} width={600} inferSize={true} />
+      )
+    })
+  }
+</div>
+
+<style>
+  .album {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 2rem;
+  }
+  .album img {
+    max-width: 100%;
+  }
+  @media (max-width: 720px) {
+    .album {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

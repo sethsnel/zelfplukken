@@ -1,10 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Zelfplukken.nl" description="Zelfplukken - Vers, gezond en erg lekker">
   <div class="container">
-    <img src="/images/plattegrond.webp" title="Plattegrond van zelfplukken" alt="Plattegrond van zelfplukken" />
+    <Image src="/images/plattegrond.webp" title="Plattegrond van zelfplukken" alt="Plattegrond van zelfplukken" width={720} height={1280} />
   </div>
 </BaseLayout>
 

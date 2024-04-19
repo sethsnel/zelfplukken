@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"a"> & { image?: string };
@@ -6,7 +7,7 @@ type Props = HTMLAttributes<"a"> & { image?: string };
 const { href, image, ...props } = Astro.props;
 ---
 
-{image && <img src={image} alt="" />}
+{image && <Image src={image + '/m/240x240'} alt="decorative image" width={240} height={240} />}
 {
   !image && (
     <a href={href} {...props}>

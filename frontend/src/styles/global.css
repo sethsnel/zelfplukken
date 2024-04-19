@@ -98,7 +98,7 @@ a {
   color: var(--accent);
 }
 a:hover {
-  color: var(--accent);
+  color: #244920;
 }
 p {
   margin-bottom: 1em;

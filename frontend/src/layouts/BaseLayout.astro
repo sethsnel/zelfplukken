@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 import { useStoryblokApi } from "@storyblok/astro";
 import BaseHead from "../components/BaseHead.astro";
@@ -51,7 +52,7 @@ const { title, description } = Astro.props;
 
   <body>
     <a href="/" class="home-link">
-      <img src="/images/van-reeuwijk-logo.png" title="home" alt="home" />
+      <Image src="/images/van-reeuwijk-logo.png" title="home" alt="home" width={350} height={350}/>
     </a>
     <StoryblokComponent blok={headerContent.content} />
     <main>

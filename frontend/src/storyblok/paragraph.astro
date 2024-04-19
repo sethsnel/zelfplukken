@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { renderRichText, storyblokEditable } from "@storyblok/astro";
 
 const { blok } = Astro.props;
@@ -9,7 +10,8 @@ const textContent = renderRichText(blok.inhoud);
 ---
 
 <div class="row" {...storyblokEditable(blok)}>
-    { blok.afbeelding?.filename && <img src={blok.afbeelding.filename} alt={blok.afbeelding.alt} /> }
+    { blok.afbeelding?.filename && <Image src={blok.afbeelding.filename + '/m/400x0'} alt={blok.afbeelding.alt} width={400} inferSize={true} /> }
+    <!-- { blok.afbeelding?.filename && <img src={blok.afbeelding.filename + '/m/400x0'} alt={blok.afbeelding.alt} /> } -->
   <div class="text">
     <Fragment set:html={textContent} />
   </div>

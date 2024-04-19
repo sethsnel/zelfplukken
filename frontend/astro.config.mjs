@@ -16,6 +16,7 @@ export default defineConfig({
         page: "storyblok/page",
         pagina_header: "storyblok/page-header",
         paragraaf: "storyblok/paragraph",
+        album: "storyblok/album",
         index: "storyblok/index",
         menu_item: "storyblok/menu-item-blok",
         website_header: "storyblok/website-header",
