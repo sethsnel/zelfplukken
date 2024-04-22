@@ -13,6 +13,8 @@ const {
   version: "published",
 });
 
+const { pathname } = Astro.url;
+const showHeader = pathname === "/" && headerContent.content.header_foto.filename;
 const { title, description } = Astro.props;
 ---
 
@@ -29,9 +31,13 @@ const { title, description } = Astro.props;
         display: block;
         width: 350px;
         height: 350px;
-        position: absolute;
+        position: sticky;
         top: 2rem;
         left: 2rem;
+      }
+      .home-link img {
+        width: 100%;
+        height: auto;
       }
       @media (max-width: 720px) {
         .home-link {
@@ -51,6 +57,7 @@ const { title, description } = Astro.props;
   </head>
 
   <body>
+    { showHeader && <Image class="background-image" src={`${headerContent.content.header_foto.filename}/m/`} title="banner" alt="banner" inferSize={true} />}
     <a href="/" class="home-link">
       <Image src="/images/van-reeuwijk-logo.png" title="home" alt="home" width={350} height={350}/>
     </a>
