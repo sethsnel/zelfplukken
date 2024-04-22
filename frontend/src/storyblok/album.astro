@@ -12,7 +12,7 @@ const { blok } = Astro.props;
   {
     blok.afbeeldingen.map((afbeelding: any) => {
       return (
-        <Image src={afbeelding.filename + '/m/600x0'} alt={afbeelding.alt} width={600} inferSize={true} />
+        <Image src={afbeelding.filename + '/m/600x0'} alt={afbeelding.alt} width={600} inferSize={true} quality={100} />
       )
     })
   }

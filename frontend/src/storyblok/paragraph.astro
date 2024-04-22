@@ -10,7 +10,7 @@ const textContent = renderRichText(blok.inhoud);
 ---
 
 <div class="row" {...storyblokEditable(blok)}>
-    { blok.afbeelding?.filename && <Image src={blok.afbeelding.filename + '/m/400x0'} alt={blok.afbeelding.alt} width={400} inferSize={true} /> }
+    { blok.afbeelding?.filename && <Image src={blok.afbeelding.filename + '/m/400x0'} alt={blok.afbeelding.alt} width={400} inferSize={true} quality={100} /> }
     <!-- { blok.afbeelding?.filename && <img src={blok.afbeelding.filename + '/m/400x0'} alt={blok.afbeelding.alt} /> } -->
   <div class="text">
     <Fragment set:html={textContent} />

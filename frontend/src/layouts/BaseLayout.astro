@@ -57,9 +57,9 @@ const { title, description } = Astro.props;
   </head>
 
   <body>
-    { showHeader && <Image class="background-image" src={`${headerContent.content.header_foto.filename}/m/`} title="banner" alt="banner" inferSize={true} />}
+    { showHeader && <Image class="background-image" src={`${headerContent.content.header_foto.filename}/m/`} title="banner" alt="banner" inferSize={true} quality={100} />}
     <a href="/" class="home-link">
-      <Image src="/images/van-reeuwijk-logo.png" title="home" alt="home" width={350} height={350}/>
+      <Image src="/images/van-reeuwijk-logo.png" title="home" alt="home" width={350} height={350} quality={100} />
     </a>
     <StoryblokComponent blok={headerContent.content} />
     <main>

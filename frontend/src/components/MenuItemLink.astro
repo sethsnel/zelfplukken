@@ -7,7 +7,7 @@ type Props = HTMLAttributes<"a"> & { image?: string };
 const { href, image, ...props } = Astro.props;
 ---
 
-{image && <Image src={image + '/m/240x240'} alt="decorative image" width={240} height={240} />}
+{image && <Image src={image + '/m/240x240'} alt="decorative image" width={240} height={240} quality={100} />}
 {
   !image && (
     <a href={href} {...props}>
