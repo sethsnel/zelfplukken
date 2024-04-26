@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 import { useStoryblokApi } from "@storyblok/astro";
 import BaseHead from "../components/BaseHead.astro";
@@ -14,7 +14,8 @@ const {
 });
 
 const { pathname } = Astro.url;
-const showHeader = pathname === "/" && headerContent.content.header_foto.filename;
+const showHeader =
+  pathname === "/" && headerContent.content.header_foto.filename;
 const { title, description } = Astro.props;
 ---
 
@@ -29,10 +30,10 @@ const { title, description } = Astro.props;
       }
       .home-link {
         display: block;
-        width: 350px;
-        height: 350px;
+        width: min(350px, 20vw);
+        height: min(350px, 20vw);
         position: absolute;
-        top: 2rem;
+        top: 5rem;
         left: 2rem;
       }
       .home-link img {
@@ -57,9 +58,29 @@ const { title, description } = Astro.props;
   </head>
 
   <body>
-    { showHeader && <Image class="background-image" src={`${headerContent.content.header_foto.filename}/m/`} title="banner" alt="banner" inferSize={true} quality={100} />}
+    {
+      showHeader && (
+        <div class="background-image-container">
+          <Image
+            class="background-image"
+            src={`${headerContent.content.header_foto.filename}/m/`}
+            title="banner"
+            alt="banner"
+            inferSize={true}
+            quality={100}
+          />
+        </div>
+      )
+    }
     <a href="/" class="home-link">
-      <Image src="/images/van-reeuwijk-logo.png" title="home" alt="home" width={350} height={350} quality={100} />
+      <Image
+        src="/images/van-reeuwijk-logo.png"
+        title="home"
+        alt="home"
+        width={350}
+        height={350}
+        quality={100}
+      />
     </a>
     <StoryblokComponent blok={headerContent.content} />
     <main>

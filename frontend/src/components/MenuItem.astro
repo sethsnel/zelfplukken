@@ -22,7 +22,7 @@ const {
 
 ---
 
-<div style={{ backgroundColor: bgColor || 'rgb(81, 135, 46)' }}>
+<div style={{ backgroundColor: bgColor || 'rgb(81, 135, 46)' }} class={ !image && 'menu-item' || ''}>
   <MenuItemLink href={href} image={image}>
     <h5 class="title">{title}</h5>
   </MenuItemLink>
@@ -38,5 +38,8 @@ const {
     text-overflow: ellipsis;
     overflow: hidden;
     text-wrap: balance;
+  }
+  .menu-item:hover {
+    filter: brightness(115%);
   }
 </style>
