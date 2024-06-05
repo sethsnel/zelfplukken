@@ -15,7 +15,6 @@ const {
 
 const { pathname } = Astro.url
 const showHeaderImg = pathname === "/" && headerContent.content.header_foto.filename
-const showHeaderContent = pathname === undefined || !pathname.includes("plattegrond")
 const { title, description } = Astro.props
 ---
 
@@ -75,7 +74,7 @@ const { title, description } = Astro.props
     <a href='/' class='home-link'>
       <Image src='/images/van-reeuwijk-logo.png' title='home' alt='home' width={350} height={350} quality={100} />
     </a>
-    {showHeaderContent && <StoryblokComponent blok={headerContent.content} />}
+    <StoryblokComponent blok={headerContent.content} />
     <main>
       <article>
         <slot />

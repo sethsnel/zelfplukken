@@ -1,5 +1,7 @@
 ---
-const displayMenuLink = Astro.url.pathname !== '/' && !Astro.url.pathname.includes('index');
+const { pathname } = Astro.url
+const displayMenuLink = pathname !== '/' && !pathname.includes('index');
+const showHeaderSlot = !pathname.includes("plattegrond")
 ---
 
 <header>
@@ -9,7 +11,9 @@ const displayMenuLink = Astro.url.pathname !== '/' && !Astro.url.pathname.includ
       home
     </a>
   </nav>
-  <slot />
+  {
+    showHeaderSlot && <slot />
+  }
 </header>
 <style>
   header {
